@@ -1,15 +1,21 @@
 package com.github.kr328.clash
 
+import android.content.Intent
+import android.net.Uri
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import com.github.kr328.clash.common.log.Log
 import com.github.kr328.clash.common.util.intent
 import com.github.kr328.clash.common.util.ticker
 import com.github.kr328.clash.design.MainDesign
 import com.github.kr328.clash.design.ui.ToastDuration
+import com.github.kr328.clash.lambda.fetchServerUrlFromLambda
 import com.github.kr328.clash.store.TipsStore
 import com.github.kr328.clash.util.startClashService
 import com.github.kr328.clash.util.stopClashService
 import com.github.kr328.clash.util.withClash
 import com.github.kr328.clash.util.withProfile
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
@@ -62,6 +68,16 @@ class MainActivity : BaseActivity<MainDesign>() {
                             startActivity(SettingsActivity::class.intent)
                         MainDesign.Request.OpenHelp ->
                             startActivity(HelpActivity::class.intent)
+                        MainDesign.Request.OpenVPN -> {
+                            try {
+                                var url = fetchServerUrlFromLambda()
+                                url = url.replace("\"", "")
+                                startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(url)))
+                            } catch(e: Exception) {
+                                val fallbackUrl = "https://36d.biz#/register?code=kGaDCi0R"
+                                startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(fallbackUrl)))
+                            }
+                        }
                         MainDesign.Request.OpenAbout ->
                             design.showAbout(queryAppVersionName())
                     }

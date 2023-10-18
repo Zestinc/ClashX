@@ -34,14 +34,14 @@ subprojects {
     extensions.configure<BaseExtension> {
         defaultConfig {
             if (isApp) {
-                applicationId = "com.github.kr328.clash"
+                applicationId = "com.github.clashx"
             }
 
             minSdk = 21
             targetSdk = 31
 
-            versionName = "2.5.12"
-            versionCode = 205012
+            versionName = "1.0.0"
+            versionCode = 100000
 
             resValue("string", "release_name", "v$versionName")
             resValue("integer", "release_code", "$versionCode")

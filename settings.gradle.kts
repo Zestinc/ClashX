@@ -1,4 +1,4 @@
-rootProject.name = "ClashForAndroid"
+rootProject.name = "ClashX"
 
 include(":app")
 include(":core")

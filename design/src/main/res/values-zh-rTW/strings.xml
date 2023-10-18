@@ -6,7 +6,7 @@
     <string name="access_control_packages">存取控制應用程式套件清單</string>
     <string name="append_system_dns">附加作業系統 DNS</string>
     <string name="application_broken">應用程式損毀</string>
-    <string name="application_name">Clash for Android</string>
+    <string name="application_name">ClashX</string>
     <string name="auto_update">自動更新</string>
     <string name="behavior">行為</string>
     <string name="bypass_private_network">略過私有網路</string>
@@ -43,7 +43,7 @@
     <string name="import_from_url">從 URL 匯入</string>
     <string name="interface_">介面</string>
     <string name="invalid_url">無效 URL</string>
-    <string name="launch_name">Clash</string>
+    <string name="launch_name">ClashX</string>
     <string name="logcat">Logcat</string>
     <string name="logs">紀錄</string>
     <string name="mode">模式</string>
@@ -84,12 +84,13 @@
     <string name="github_issues">GitHub Issues</string>
     <string name="tips_properties"><![CDATA[僅接受 <strong>Clash 設定檔</strong> (包含<strong>Proxy</strong> /<strong>規則</strong>)]]></string>
     <string name="loading">載入中</string>
-    <string name="tips_help"><![CDATA[Clash for Android 是一個<strong>免費應用程式</strong>並且我們<strong>不</strong>為其提供任何服務, <strong>請務必不要回報非應用程式自身引起的問題</strong>]]></string>
+    <string name="tips_help"><![CDATA[ClashX完全基於Clash for Android開發。Clash for Android 是一個<strong>免費應用程式</strong>並且我們<strong>不</strong>為其提供任何服務, <strong>請務必不要回報非應用程式自身引起的問題</strong>]]></string>
     <string name="donate">抖內</string>
     <string name="allow_all_apps">允許所有應用程式</string>
     <string name="allow_selected_apps">僅允許已選擇的應用程式</string>
     <string name="deny_selected_apps">不允許已選擇的應用程式</string>
     <string name="no_profile_selected">未選擇設定檔</string>
+    <string name="airport">機場</string>
     <string name="copied">已複製</string>
     <string name="script_mode">腳本模式</string>
     <string name="google_play">Google Play</string>
@@ -202,7 +203,7 @@
     <string name="github_releases">GitHub Releases</string>
     <string name="unable_to_start_vpn">無法啟動 VPN 元件</string>
     <string name="request_donate_tips">如果您覺得本應用程式對您有幫助，歡迎在 [幫助] 中給予開發人員一些抖內</string>
-    <string name="request_donate">抖內</string>
+    <string name="request_donate">捐贈</string>
     <string name="version_updated">應用程式已更新</string>
     <string name="version_updated_tips">設定已被清除，舊版設定檔需要再次儲存。</string>
     <string name="active_unsaved_tips">設定檔需要在開啟之前儲存</string>
