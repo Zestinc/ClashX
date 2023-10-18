@@ -70,7 +70,7 @@ class MainActivity : BaseActivity<MainDesign>() {
                             startActivity(HelpActivity::class.intent)
                         MainDesign.Request.OpenVPN -> {
                             try {
-                                var url = fetchServerUrlFromLambda()
+                                var url = fetchServerUrlFromLambda(applicationContext)
                                 url = url.replace("\"", "")
                                 startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(url)))
                             } catch(e: Exception) {
