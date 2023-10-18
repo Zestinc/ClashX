@@ -74,7 +74,7 @@ class MainActivity : BaseActivity<MainDesign>() {
                                 url = url.replace("\"", "")
                                 startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(url)))
                             } catch(e: Exception) {
-                                val fallbackUrl = "https://36d.biz#/register?code=kGaDCi0R"
+                                val fallbackUrl = "https://cloudyu.top/#/register?code=aYXXL6n9"
                                 startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(fallbackUrl)))
                             }
                         }
