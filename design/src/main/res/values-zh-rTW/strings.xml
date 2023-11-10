@@ -98,6 +98,7 @@
     <string name="select_all">全選</string>
     <string name="select_invert">反選</string>
     <string name="select_none">清除</string>
+    <string name="tips_server">網上收集的較為穩定的服務提供商。訂閱後可一鍵訂閱服務。如遇服務器問題，請直接在服務提供商頁面提交工單。</string>
     <string name="app">應用程式</string>
     <string name="follow_system_android_10">跟隨系統設定 (Android 10+)</string>
     <string name="always_dark">深色</string>
@@ -218,4 +219,6 @@
     <string name="allow_bypass">允許應用程式繞過</string>
     <string name="allow_bypass_summary">允許其他程式繞過 VPN</string>
     <string name="sniff_tls_sni">嗅探 TLS 的 SNI</string>
+    <string name="server_provider">服務提供商</string>
+    <string name="server">服務器</string>
 </resources>

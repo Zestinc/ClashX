@@ -147,6 +147,11 @@
             android:exported="false"
             android:label="@string/help" />
         <activity
+            android:name=".ServerActivity"
+            android:configChanges="uiMode"
+            android:exported="false"
+            android:label="@string/server" />
+        <activity
             android:name=".FilesActivity"
             android:configChanges="uiMode"
             android:exported="false"

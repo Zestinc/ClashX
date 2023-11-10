@@ -98,6 +98,7 @@
     <string name="select_all">全選</string>
     <string name="select_invert">反選</string>
     <string name="select_none">清除</string>
+    <string name="tips_server">網上收集的較為穩定的服務提供商。訂閱後可一鍵訂閱服務。如遇服務器問題，請直接在服務提供商頁面提交工單。</string>
     <string name="app">應用</string>
     <string name="follow_system_android_10">跟隨系統 (Android 10+)</string>
     <string name="always_dark">總是暗黑模式</string>
@@ -218,4 +219,6 @@
     <string name="name_server_policy">Name Server 策略</string>
     <string name="block_loopback">阻止本地迴環</string>
     <string name="block_loopback_summary">阻止本地迴環連接</string>
+    <string name="server_provider">服務提供商</string>
+    <string name="server">服務器</string>
 </resources>

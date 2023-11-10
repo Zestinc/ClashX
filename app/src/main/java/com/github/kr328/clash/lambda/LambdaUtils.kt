@@ -9,16 +9,14 @@ import java.net.URL
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.concurrent.TimeUnit
-
-const val ServerAddressUrlCacheKey = "server_address_url_cache_key"
-suspend fun fetchServerUrlFromLambda(context: Context): String = withContext(Dispatchers.IO) {
+suspend fun fetchStringUrlFromLambda(context: Context, urlString: String): String = withContext(Dispatchers.IO) {
     val cacheUtil = CacheUtil(context)
-    val cache = cacheUtil.getCachedString(ServerAddressUrlCacheKey)
+    val cache = cacheUtil.getCachedString(urlString)
     if (cache != null) {
         return@withContext cache
     }
 
-    val url = URL("https://3sm6xoow37.execute-api.us-east-2.amazonaws.com/airport_server_url")
+    val url = URL(urlString)
     val connection = url.openConnection() as HttpURLConnection
 
     try {
@@ -28,9 +26,9 @@ suspend fun fetchServerUrlFromLambda(context: Context): String = withContext(Dis
         if (responseCode == HttpURLConnection.HTTP_OK) {
             val reader = BufferedReader(InputStreamReader(connection.inputStream))
             reader.use {
-                val url = it.readText()
-                cacheUtil.cacheString(ServerAddressUrlCacheKey, url)
-                url
+                val urlFromResponse = it.readText()
+                cacheUtil.cacheString(urlString, urlFromResponse)
+                urlFromResponse
             }
         } else {
             "Error: $responseCode"
@@ -39,6 +37,7 @@ suspend fun fetchServerUrlFromLambda(context: Context): String = withContext(Dis
         connection.disconnect()
     }
 }
+
 
 class CacheUtil(context: Context) {
     private val prefs: SharedPreferences =
