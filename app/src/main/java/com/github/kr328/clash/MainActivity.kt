@@ -9,7 +9,6 @@ import com.github.kr328.clash.common.util.intent
 import com.github.kr328.clash.common.util.ticker
 import com.github.kr328.clash.design.MainDesign
 import com.github.kr328.clash.design.ui.ToastDuration
-import com.github.kr328.clash.lambda.fetchServerUrlFromLambda
 import com.github.kr328.clash.store.TipsStore
 import com.github.kr328.clash.util.startClashService
 import com.github.kr328.clash.util.stopClashService
@@ -69,14 +68,7 @@ class MainActivity : BaseActivity<MainDesign>() {
                         MainDesign.Request.OpenHelp ->
                             startActivity(HelpActivity::class.intent)
                         MainDesign.Request.OpenVPN -> {
-                            try {
-                                var url = fetchServerUrlFromLambda(applicationContext)
-                                url = url.replace("\"", "")
-                                startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(url)))
-                            } catch(e: Exception) {
-                                val fallbackUrl = "https://cloudyu.top/#/register?code=aYXXL6n9"
-                                startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(fallbackUrl)))
-                            }
+                            startActivity(ServerActivity::class.intent)
                         }
                         MainDesign.Request.OpenAbout ->
                             design.showAbout(queryAppVersionName())

@@ -18,6 +18,59 @@ interface ClickablePreference : Preference {
 }
 
 fun PreferenceScreen.clickable(
+    title: String,
+    icon: Int? = null,
+    summary: String? = null,
+    configure: ClickablePreference.() -> Unit = {}
+): ClickablePreference {
+    val binding = PreferenceClickableBinding
+        .inflate(context.layoutInflater, root, false)
+
+    val impl = object : ClickablePreference {
+        override var icon: Drawable?
+            get() = binding.iconView.background
+            set(value) {
+                binding.iconView.background = value
+            }
+        override var title: CharSequence
+            get() = binding.titleView.text
+            set(value) {
+                binding.titleView.text = value
+            }
+        override var summary: CharSequence?
+            get() = binding.summaryView.text
+            set(value) {
+                binding.summaryView.text = value
+                binding.summaryView.visibility = if (value == null) View.GONE else View.VISIBLE
+            }
+        override val view: View
+            get() = binding.root
+
+        override fun clicked(clicked: () -> Unit) {
+            binding.root.setOnClickListener {
+                clicked()
+            }
+        }
+    }
+
+    // Set title and summary directly as they are already Strings
+    impl.title = title
+
+    if (icon != null) {
+        impl.icon = context.getDrawableCompat(icon)
+    }
+
+    // Set summary directly as a String, or null if not provided
+    impl.summary = summary
+
+    impl.configure()
+
+    addElement(impl)
+
+    return impl
+}
+
+fun PreferenceScreen.clickable(
     @StringRes title: Int,
     @DrawableRes icon: Int? = null,
     @StringRes summary: Int? = null,
